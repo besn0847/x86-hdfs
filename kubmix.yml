@@ -21,13 +21,12 @@ metadata:
   name: svc-hdfs
   labels:
     run : web-hdfs 
-  namespace: default
 spec:
-  ports:
-  - nodePort: 32412
-    port: 26412
-    protocol: TCP
-    targetPort: 26412
   selector:
-    app: web-hdfs 
+    app: web-hdfs
   type: NodePort
+  ports:
+  - name: port26412
+    protocol: TCP
+    port: 26412
+    nodePort: 32412
